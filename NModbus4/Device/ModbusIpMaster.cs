@@ -126,6 +126,18 @@
         }
 
         /// <summary>
+        ///    Reads from 1 to 2000 contiguous discrete input status.
+        /// </summary>
+        /// <param name="SlaveUnitId">The Slave Unit Id, or the unit identifier.</param>
+        /// <param name="startAddress">Address to begin reading.</param>
+        /// <param name="numberOfPoints">Number of discrete inputs to read.</param>
+        /// <returns>Discrete inputs status.</returns>
+        public bool[] ReadInputs(byte SlaveUnitId, ushort startAddress, ushort numberOfPoints)
+        {
+            return base.ReadInputs(SlaveUnitId, startAddress, numberOfPoints);
+        }
+
+        /// <summary>
         ///    Asynchronously reads from 1 to 2000 contiguous discrete input status.
         /// </summary>
         /// <param name="startAddress">Address to begin reading.</param>
@@ -148,6 +160,18 @@
         }
 
         /// <summary>
+        ///    Reads contiguous block of holding registers.
+        /// </summary>
+        /// <param name="SlaveUnitId">Unit Identification of the Slave.</param>
+        /// <param name="startAddress">Address to begin reading.</param>
+        /// <param name="numberOfPoints">Number of holding registers to read.</param>
+        /// <returns>Holding registers status.</returns>
+        public ushort[] ReadHoldingRegisters(byte SlaveUnitId, ushort startAddress, ushort numberOfPoints)
+        {
+            return base.ReadHoldingRegisters(SlaveUnitId, startAddress, numberOfPoints);
+        }
+
+        /// <summary>
         ///    Asynchronously reads contiguous block of holding registers.
         /// </summary>
         /// <param name="startAddress">Address to begin reading.</param>
@@ -167,6 +191,18 @@
         public ushort[] ReadInputRegisters(ushort startAddress, ushort numberOfPoints)
         {
             return base.ReadInputRegisters(Modbus.DefaultIpSlaveUnitId, startAddress, numberOfPoints);
+        }
+
+        /// <summary>
+        ///    Reads contiguous block of input registers.
+        /// </summary>
+        /// <param name="SlaveUnitId">Unit Identification of the Slave.</param>
+        /// <param name="startAddress">Address to begin reading.</param>
+        /// <param name="numberOfPoints">Number of holding registers to read.</param>
+        /// <returns>Input registers status.</returns>
+        public ushort[] ReadInputRegisters(byte SlaveUnitId, ushort startAddress, ushort numberOfPoints)
+        {
+            return base.ReadInputRegisters(SlaveUnitId, startAddress, numberOfPoints);
         }
 
         /// <summary>
